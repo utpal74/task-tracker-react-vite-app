@@ -1,0 +1,121 @@
+
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* ------- Task App related --------- */
+
+.logo-section {
+  display: inline;
+  height: 100px;
+  margin-right: 5rem;
+}
+
+.header {
+  margin: 1rem .75rem 0;
+}
+
+.header-btn {
+  margin-right: 1rem;
+}
+
+.container {
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.task { padding: .5rem; margin: .5rem;}
+.add-task { margin-left: 1rem; }
+.task-control-section { text-align: right; }
+.task-control:hover, .task-control:focus { cursor: pointer; }
+.ci-edit-btn, .ci-delete-btn, .ci-done-btn {
+  font-size: 1.125rem;
+  margin-top: .45rem;
+  box-shadow: 0px 1px 10px 0px lightblue;
+  margin-left: .55rem;
+}
+
+.ci-done-btn {
+  border-radius: 50%;
+}
+
+.rights {font-size: .75rem;}
+.task, .create-task-form { box-shadow: 0px 1px 10px 0px lightblue; border-radius: 10px;}
+
+.task-list {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: .75rem;
+}
+
+.task-detail {
+  /* display: flex; 
+  justify-content: 
+space-between; 
+  padding: 1rem;  */
+}
+
+.task-detail > h2 {
+  margin-bottom: -1rem;
+}
+
+.create-task-form { 
+  width: 220px;
+  padding: .75rem .5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fields { margin-bottom: 1rem; }
+input.fields { 
+  padding: .5rem; 
+  border: 1px solid lightblue; 
+  border-radius: 10px; 
+  font-size: inherit;
+  font-weight: inherit;
+  outline: none;
+}
+button.fields:nth-last-of-type(1) { margin-left: 1rem; }
+
+.time-section { 
+  font-size: .75rem;
+}
+
+.add-new-task-btn, .update-task-btn, .cancel-task-btn {
+  font-size: .825rem;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+}
+
+.tooltip_element {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  /* background-color: black; */
+  /* color: white; */
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 1s;
+  top: -20px;
+  /* left: 80px; */
+  width: max-content;
+  font-size: .75rem;
+}
+
+.tooltip_element:hover .tooltip {
+  opacity: 1;
+}
