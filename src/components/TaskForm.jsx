@@ -28,14 +28,14 @@ export default function TaskForm({ title, comment, id, handleClose }) {
                 required
             />
 
-            <input
+            <textarea
                 {...commentProps}
                 className="fields"
                 type="text"
                 placeholder="Enter comments"
                 required
             />
-            <div>
+            <div className="create-task-from-btn">
                 <button
                     className="fields update-task-btn"
                     onClick={handleAddOrUpdateTasks}

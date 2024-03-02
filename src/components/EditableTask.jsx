@@ -10,7 +10,7 @@ export function EditableTask({...props}) {
     const closeEditForm = () => { setIsEditOpen(false) }
     
     return (
-        <div>
+        <div className="editable-task">
             {isEditOpen ?
                 <TaskForm {...props} handleClose={closeEditForm} />
                 :

@@ -1,4 +1,8 @@
-
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 #root {
   margin: 0 auto;
   padding: 2rem;
@@ -23,7 +27,7 @@
 }
 
 .container {
-  height: 550px;
+  /* height: 550px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,20 +52,13 @@
 .task, .create-task-form { box-shadow: 0px 1px 10px 0px lightblue; border-radius: 10px;}
 
 .task-list {
-  width: 700px;
+  /* width: 700px; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
   margin: .75rem;
-}
-
-.task-detail {
-  /* display: flex; 
-  justify-content: 
-space-between; 
-  padding: 1rem;  */
 }
 
 .task-detail > h2 {
@@ -75,6 +72,15 @@ space-between;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  width: 80%;
+  height: 80%;
+  background-color: lightblue;
+  margin: auto auto;
 }
 
 .fields { margin-bottom: 1rem; }
@@ -118,4 +124,72 @@ button.fields:nth-last-of-type(1) { margin-left: 1rem; }
 
 .tooltip_element:hover .tooltip {
   opacity: 1;
+}
+
+.editable-task {
+  position: relative;
+}
+
+textarea.fields {
+  height: 10vh;
+  width: 30%;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  /* font-size: inherit; */
+}
+
+.update-task-btn, .cancel-task-btn {
+  font-size: 1em;
+}
+
+@media (max-width: 720px) {
+  .task-list {
+    flex-direction: column;
+  }
+
+  .add-new-task-btn {
+    width: 90%;
+  }
+
+  .ci-edit-btn, .ci-delete-btn, .ci-done-btn {
+    font-size: 1.5rem;
+    margin-top: .45rem;
+    margin-left: 1rem;
+  }
+
+  /* .fields {
+    font-size: 1.5rem;
+  } */
+
+  input.fields {
+    width: 80%;
+  }
+
+  textarea.fields {
+    height: 10vh;
+    width: 80%;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    /* font-size: inherit; */
+  }
+
+  .create-task-from-btn {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button.fields:nth-last-of-type(1) { margin-left: 0; }
+
+  .update-task-btn, .cancel-task-btn {
+    width: 90%;
+    font-size: 1.15rem;
+  }
+
+  
 }
