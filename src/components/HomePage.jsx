@@ -1,25 +1,20 @@
 
 import Header from "./Header";
 import Footer from "./Footer";
+import { useState } from "react";
+import TaskDescriptionSection from "./TaskDescriptionSection";
 
 export default function HomePage() {
+    const [toggleAddTask, setToggleAddTask] = useState(false);
     return (
-        <>
-            <div className='container'>
-                <Header />
-                <section>
-                    <p>Welcome to track my tak app - you can now track your task status from anywhere and pickup where you left off.</p>
-                    <p>Give it a try -
-                        <button
-                            className='add-task'
-                            onClick={() => { console.log('Task added') }}
-                        >
-                            Add task
-                        </button>
-                    </p>
-                </section>
-                <Footer />
-            </div>
-        </>
+        <div className='container'>
+            <Header toggleAddTask={toggleAddTask} 
+                handleToggleTask={(value)=>setToggleAddTask(value)} />
+            <TaskDescriptionSection 
+                toggleAddTask={toggleAddTask} 
+                handleToggleTask={(value)=>setToggleAddTask(value)}
+            />
+            <Footer />
+        </div>
     )
 }

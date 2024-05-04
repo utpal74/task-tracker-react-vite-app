@@ -22,7 +22,7 @@ export default function TaskProvider({ children }) {
             id: nanoid(),
             title: title,
             comment: comment,
-            done: false
+            done: ""
         }]);
     }
 

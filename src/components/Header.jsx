@@ -1,24 +1,20 @@
 
-import { SiTask } from "react-icons/si";
+import logo from "../assets/logo.png";
 
-export default function Header(){
+export default function Header({ handleToggleTask }) {
     return (
-        <div className="header">
+        <header>
             <div className="logo-section">
-                <SiTask />
+                <img src={logo} alt="TRACK MY TASK" />
             </div>
-            <button 
-                className="header-btn add-task"
-                onClick={()=>{ console.log('Task added') }}
-            >
-                Add task
-            </button>
-            <button 
-                className="header-btn"
-                onClick={()=>{ console.log('Task tracked') }}
-            >
-                View tasks
-            </button>
-        </div>
+            <div className="header-btn-section">
+                <button
+                    className="header-btn"
+                    onClick={() => { handleToggleTask(true) }}
+                >
+                    Task Dashboard
+                </button>
+            </div>
+        </header>
     );
 }

@@ -1,8 +1,5 @@
-import { useState } from "react";
+
 import { useTasks } from "../hooks/task-hook"
-import { CiEdit } from "react-icons/ci";
-import { CiTrash } from "react-icons/ci";
-import TaskForm from "./TaskForm";
 import { EditableTask } from "./EditableTask";
 
 export default function EditableTaskList() {
