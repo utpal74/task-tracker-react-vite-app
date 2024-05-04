@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "aws-amplify": "^6.0.18",
     "nanoid": "^5.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,13 +19,9 @@
     "web-vitals": "^3.5.2"
   },
   "devDependencies": {
-    "@aws-amplify/backend": "^0.12.1",
-    "@aws-amplify/backend-cli": "^0.11.1",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
-    "aws-cdk": "^2.130.0",
-    "aws-cdk-lib": "^2.130.0",
     "constructs": "^10.3.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
