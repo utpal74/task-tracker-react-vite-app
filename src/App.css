@@ -130,7 +130,7 @@ button.fields:nth-last-of-type(1) { margin-left: 1rem; }
 
 .add-new-task-btn, .update-task-btn, .cancel-task-btn {
   font-size: .825rem;
-  font-weight: 500;
+  /* font-weight: 500; */
   letter-spacing: 1.1px;
 }
 
@@ -162,8 +162,20 @@ textarea.fields {
   font-size: inherit;
 }
 
-.update-task-btn, .cancel-task-btn {
-  font-size: 1em;
+.desc > h3 {
+  overflow: hidden;
+  border-right: .15em solid lightblue;
+  margin: 0 auto;
+  letter-spacing: .05em;
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
 @media (max-width: 500px) {
@@ -201,8 +213,8 @@ textarea.fields {
   button.fields:nth-last-of-type(1) { margin-left: 0; }
 
   .update-task-btn, .cancel-task-btn {
-    width: 90%;
-    font-size: 1.15rem;
+    width: 70%;
+    /* font-size: 1.15rem; */
   }
 
   header {

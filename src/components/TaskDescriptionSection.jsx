@@ -7,7 +7,7 @@ export default function TaskDescriptionSection({ toggleAddTask, handleToggleTask
         <div>
             { !toggleAddTask ?
             <section className="desc">
-                <h2>Welcome to track my tak app - you can now track your task status from anywhere and pickup where you left off.</h2>
+                <h3 className="">Welcome to track my tak app - you can now track your task status from anywhere and pickup where you left off.</h3>
                 <p>Go to 👉 
                     <button
                         className='add-task'

@@ -20,13 +20,13 @@ export default function TaskForm({ title, comment, id, handleClose }) {
 
     return (
         <div className="create-task-form">
-            <input
+            {/* <input
                 {...titleProps}
                 className="fields"
                 type="text"
                 placeholder="Enter title"
                 required
-            />
+            /> */}
 
             <textarea
                 {...commentProps}
