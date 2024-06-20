@@ -3,6 +3,7 @@
 *::before {
   box-sizing: border-box;
 }
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -27,7 +28,8 @@
 }
 
 
-header, footer {
+header,
+footer {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -39,7 +41,7 @@ footer {
   padding: .325rem;
 }
 
-footer > div > a {
+footer>div>a {
   color: inherit;
   text-decoration: underline;
 }
@@ -65,11 +67,27 @@ header {
   margin: 0 auto;
 }
 
-.task { padding: .5rem; margin: .5rem;}
-.add-task { margin-left: 1rem; }
-.task-control-section { text-align: right; }
-.task-control:hover, .task-control:focus { cursor: pointer; }
-.ci-edit-btn, .ci-delete-btn, .ci-done-btn {
+.task {
+  padding: .5rem;
+  margin: .5rem;
+}
+
+.add-task {
+  margin-left: 1rem;
+}
+
+.task-control-section {
+  text-align: right;
+}
+
+.task-control:hover,
+.task-control:focus {
+  cursor: pointer;
+}
+
+.ci-edit-btn,
+.ci-delete-btn,
+.ci-done-btn {
   font-size: 1.125rem;
   margin-top: .45rem;
   box-shadow: 0px 1px 10px 0px lightblue;
@@ -80,8 +98,15 @@ header {
   border-radius: 50%;
 }
 
-.rights {font-size: .75rem;}
-.task, .create-task-form { box-shadow: 0px 1px 10px 0px lightblue; border-radius: 10px;}
+.rights {
+  font-size: .75rem;
+}
+
+.task,
+.create-task-form {
+  box-shadow: 0px 1px 10px 0px lightblue;
+  border-radius: 10px;
+}
 
 .task-list {
   display: flex;
@@ -92,11 +117,19 @@ header {
   margin: .75rem;
 }
 
-.task-detail > h2 {
+.task-detail {
+  white-space: pre-wrap;
+}
+
+.task-comment {
+  text-align: left;
+}
+
+.task-detail>h2 {
   margin-bottom: -1rem;
 }
 
-.create-task-form { 
+.create-task-form {
   padding: .75rem .5rem 0;
   display: flex;
   flex-direction: column;
@@ -113,22 +146,30 @@ header {
   margin: auto auto;
 }
 
-.fields { margin-bottom: 1rem; }
-input.fields { 
-  padding: .5rem; 
-  border: 1px solid lightblue; 
-  border-radius: 10px; 
+.fields {
+  margin-bottom: 1rem;
+}
+
+input.fields {
+  padding: .5rem;
+  border: 1px solid lightblue;
+  border-radius: 10px;
   font-size: inherit;
   font-weight: inherit;
   outline: none;
 }
-button.fields:nth-last-of-type(1) { margin-left: 1rem; }
 
-.time-section { 
+button.fields:nth-last-of-type(1) {
+  margin-left: 1rem;
+}
+
+.time-section {
   font-size: .75rem;
 }
 
-.add-new-task-btn, .update-task-btn, .cancel-task-btn {
+.add-new-task-btn,
+.update-task-btn,
+.cancel-task-btn {
   font-size: .825rem;
   /* font-weight: 500; */
   letter-spacing: 1.1px;
@@ -153,29 +194,43 @@ button.fields:nth-last-of-type(1) { margin-left: 1rem; }
   opacity: 1;
 }
 
-textarea.fields {
-  border: 1px solid lightblue; 
-  height: 10vh;
+textarea {
+  padding: 1em;
+  border-radius: 5px;
+}
+
+textarea.fields,
+input.fields {
+  border: 1px solid lightblue;
   width: 30%;
   font-family: inherit;
   outline: none;
   font-size: inherit;
 }
 
-.desc > h3 {
+textarea.fields {
+  height: 10vh;
+}
+
+.desc>h3 {
   overflow: hidden;
   border-right: .15em solid lightblue;
   margin: 0 auto;
   letter-spacing: .05em;
-  animation: 
+  animation:
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
 }
 
 /* The typing effect */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
 @media (max-width: 500px) {
@@ -187,7 +242,9 @@ textarea.fields {
     width: 90%;
   }
 
-  .ci-edit-btn, .ci-delete-btn, .ci-done-btn {
+  .ci-edit-btn,
+  .ci-delete-btn,
+  .ci-done-btn {
     font-size: 1.5rem;
     margin-top: .45rem;
     margin-left: 1rem;
@@ -210,9 +267,12 @@ textarea.fields {
     justify-content: center;
   }
 
-  button.fields:nth-last-of-type(1) { margin-left: 0; }
+  button.fields:nth-last-of-type(1) {
+    margin-left: 0;
+  }
 
-  .update-task-btn, .cancel-task-btn {
+  .update-task-btn,
+  .cancel-task-btn {
     width: 70%;
     /* font-size: 1.15rem; */
   }

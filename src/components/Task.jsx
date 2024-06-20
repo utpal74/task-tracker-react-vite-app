@@ -65,7 +65,7 @@ export default function Task({ id, title, comment, done, onEditOpen }) {
                 </div>
                 <div className="task-detail">
                     <h2>{title}</h2>
-                    <p>{comment}</p>
+                    <p className="task-comment">{comment}</p>
                 </div>
                 <p className="time-section">Last udpated:-<span>{dateAndTime}</span></p>
             </div>
