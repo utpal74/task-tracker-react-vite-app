@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #333;
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
@@ -37,8 +41,9 @@ footer {
 
 footer {
   width: 100vw;
-  background-color: lightblue;
+  background-color: var(--primary-color);
   padding: .325rem;
+  color: aliceblue;
 }
 
 footer>div>a {
@@ -55,7 +60,8 @@ header {
   padding: 0 2rem;
   margin: 0 auto;
   margin-top: 1rem;
-  border-bottom: 1px solid lightblue;
+  border-bottom: 1px solid var(--primary-color);
+  ;
 }
 
 .header-btn {
@@ -90,7 +96,6 @@ header {
 .ci-done-btn {
   font-size: 1.125rem;
   margin-top: .45rem;
-  box-shadow: 0px 1px 10px 0px lightblue;
   margin-left: .55rem;
 }
 
@@ -104,7 +109,8 @@ header {
 
 .task,
 .create-task-form {
-  box-shadow: 0px 1px 10px 0px lightblue;
+  box-shadow: 0px 1px 10px 0px var(--primary-color);
+  ;
   border-radius: 10px;
 }
 
@@ -142,7 +148,8 @@ header {
   top: 0;
   width: 80%;
   height: 80%;
-  background-color: lightblue;
+  background-color: var(--primary-color);
+  ;
   margin: auto auto;
 }
 
@@ -152,7 +159,8 @@ header {
 
 input.fields {
   padding: .5rem;
-  border: 1px solid lightblue;
+  border: 1px solid var(--primary-color);
+  ;
   border-radius: 10px;
   font-size: inherit;
   font-weight: inherit;
@@ -201,7 +209,8 @@ textarea {
 
 textarea.fields,
 input.fields {
-  border: 1px solid lightblue;
+  border: 1px solid var(--primary-color);
+  ;
   width: 30%;
   font-family: inherit;
   outline: none;
@@ -214,22 +223,17 @@ textarea.fields {
 
 .desc>h3 {
   overflow: hidden;
-  border-right: .15em solid lightblue;
-  margin: 0 auto;
+  border-left: .15em solid var(--primary-color);
+  ;
   letter-spacing: .05em;
-  animation:
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+  opacity: 0;
+  animation: fadeIn 5s forwards;
 }
 
 /* The typing effect */
-@keyframes typing {
-  from {
-    width: 0
-  }
-
+@keyframes fadeIn {
   to {
-    width: 100%
+    opacity: 1;
   }
 }
 
