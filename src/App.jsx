@@ -3,10 +3,12 @@ import './App.css';
 import TaskProvider from './hooks/task-hook';
 import HomePage from "./components/HomePage"
 
-function App() {
+function App({ auth }) {
+  const { isSignedIn } = auth();
+
   return (
-    <TaskProvider>
-      <HomePage /> 
+    <TaskProvider isSignedIn={isSignedIn}>
+      <HomePage />
     </TaskProvider>
   )
 }
