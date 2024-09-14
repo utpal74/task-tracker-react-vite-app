@@ -9,39 +9,39 @@ export default function SignIn() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
-    const [status, setStatus] = useState(''); // 'success' or 'failure'
+    const [status, setStatus] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setMessage('');  // Clear any previous messages
+        setMessage('');
 
         try {
-            const result = await signIn(username, password);  // Get result from signIn
+            const result = await signIn(username, password);
 
-            setLoading(false);  // Stop loading spinner
+            setLoading(false);
 
-            if (result.success) {  // Check if the login was successful
+            if (result.success) {
                 setStatus('success');
                 setMessage('Login successful');
                 setTimeout(() => {
-                    setMessage('');  // Clear message after 3 seconds
-                    navigate('/');   // Navigate to another page
+                    setMessage('');
+                    navigate('/');
                 }, 2000);
             } else {
-                setStatus('failure');  // Set failure status
-                setMessage(result.message || 'Login failed. Please try again.');  // Show the error message from signIn
+                setStatus('failure');
+                setMessage(result.message || 'Login failed. Please try again.');
             }
         } catch (error) {
-            setLoading(false);  // Stop loading spinner in case of error
-            setStatus('failure');  // Set failure status
-            setMessage('Login failed. Please try again.');  // General failure message
+            setLoading(false);
+            setStatus('failure');
+            setMessage('Login failed. Please try again.');
         }
     };
 
     const handleCloseMessage = () => {
-        setMessage('');  // Close the alert message when 'X' is clicked
+        setMessage('');
     };
 
     return (
