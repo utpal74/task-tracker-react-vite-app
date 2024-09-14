@@ -230,10 +230,197 @@ textarea.fields {
   animation: fadeIn 5s forwards;
 }
 
+/* Sign in & Sign up */
+
+.auth-form {
+  width: 90vw;
+  height: 400px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.auth-form button {
+  background-color: #1a1a1a;
+  color: #f9f9f9;
+}
+
+.auth-form>form {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.auth-form>form button {
+  width: 80%;
+}
+
+.auth-form>form label {
+  margin-right: 1rem;
+}
+
+.auth-form>form div {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-form>form input {
+  padding: .325rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #747bff;
+  width: 55%;
+}
+
+.auth-form>form button {
+  width: 50%;
+}
+
+/* sign in & sign up animation  */
+
+/* Spinner Styles */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 8px solid white;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Message Box Styles */
+.message-box {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.success-icon {
+  border: 2px solid green;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.success-icon::before {
+  content: "✓";
+  color: green;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.failure-icon {
+  border: 2px solid red;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.failure-icon::before {
+  content: "✕";
+  color: red;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.alert {
+  padding: 15px;
+  margin: 20px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  position: relative;
+  width: 100%;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-failure {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.close-btn {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: inherit;
+}
+
 /* The typing effect */
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@media(min-width: 700px) {
+  .auth-form {
+    width: 700px;
   }
 }
 
@@ -278,7 +465,6 @@ textarea.fields {
   .update-task-btn,
   .cancel-task-btn {
     width: 70%;
-    /* font-size: 1.15rem; */
   }
 
   header {

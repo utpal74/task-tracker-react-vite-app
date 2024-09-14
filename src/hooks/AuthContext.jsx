@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
@@ -21,22 +22,25 @@ export default function AuthProvider({ children }) {
                 const result = await response.json();
                 // Store token or session info if needed
                 localStorage.setItem('authToken', result.token);
-                setIsSignedIn(true);  // Set to true after successful sign-in
+                setIsSignedIn(true);  // Mark user as signed in
+                return { success: true, message: 'Login successful' };
             } else {
-                console.error('Sign-in failed');
-                // Handle error (e.g., show error message to the user)
+                const errorData = await response.json();
+                console.error('Sign-in failed:', errorData.message);
+                return { success: false, message: errorData.message || 'Sign-in failed' };
             }
         } catch (error) {
-            console.error('Error signing in:', error);
-            // Handle error (e.g., show error message to the user)
+            console.error('Error during sign-in:', error);
+            return { success: false, message: 'Network error or server not responding' };
         }
     };
 
     const signUp = async (username, password, confirmPassword) => {
+        console.log("password=", password)
+        console.log("confirm password=", confirmPassword)
         if (password !== confirmPassword) {
             console.error('Passwords do not match');
-            // Handle password mismatch (e.g., show error message to the user)
-            return;
+            return { success: false, message: 'Passwords do not match' };
         }
 
         try {
@@ -51,20 +55,22 @@ export default function AuthProvider({ children }) {
             if (response.ok) {
                 const result = await response.json();
                 // Store token or session info if needed
-                setIsSignedIn(true);  // Set to true after successful sign-up
+                setIsSignedIn(true);
+                return { success: true, message: 'Registration successful' };
             } else {
-                console.error('Sign-up failed');
-                // Handle error (e.g., show error message to the user)
+                const errorData = await response.json();
+                console.error('Sign-up failed:', errorData.message);
+                return { success: false, message: errorData.message || 'Sign-up failed' };
             }
         } catch (error) {
-            console.error('Error signing up:', error);
-            // Handle error (e.g., show error message to the user)
+            console.error('Error during sign-up:', error);
+            return { success: false, message: 'Network error or server not responding' };
         }
     };
 
     const signOut = () => {
         localStorage.removeItem('authToken');
-        setIsSignedIn(false);  // Reset the state on sign-out
+        setIsSignedIn(false);
     };
 
     return (
