@@ -13,7 +13,7 @@ export const useTasks = () => useContext(TaskContext);
 // Helper function for getting the auth token
 const getAuthToken = () => localStorage.getItem('authToken');
 
-const BASE_URL = "http://localhost:8082"
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 // Function to fetch tasks from the API (signed-in users)
 const loadTasksFromAPI = async () => {
@@ -37,7 +37,6 @@ const loadTasksFromAPI = async () => {
 };
 
 export default function TaskProvider({ children, isSignedIn }) {
-    // const [tasks, setTasks] = useState([]);
     const [tasks, setTasks] = useState(() => {
         if (isSignedIn) return [];
         return loadJson("tasks");

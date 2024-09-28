@@ -5,12 +5,14 @@ const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export default function AuthProvider({ children }) {
     const [isSignedIn, setIsSignedIn] = useState(false);
 
     const signIn = async (username, password) => {
         try {
-            const response = await fetch('http://localhost:8082/signin', {
+            const response = await fetch(`${BASE_URL}/signin`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +46,7 @@ export default function AuthProvider({ children }) {
         }
 
         try {
-            const response = await fetch('http://localhost:8082/signup', {
+            const response = await fetch(`${BASE_URL}/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
