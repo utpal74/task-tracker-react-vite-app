@@ -70,9 +70,40 @@ export default function AuthProvider({ children }) {
         }
     };
 
-    const signOut = () => {
-        localStorage.removeItem('authToken');
-        setIsSignedIn(false);
+    // const signOut = () => {
+    //     localStorage.removeItem('authToken');
+    //     setIsSignedIn(false);
+    // };
+
+    const signOut = async () => {
+        const authToken = localStorage.getItem('authToken');
+
+        if (!authToken) {
+            setIsSignedIn(false);
+            return;
+        }
+
+        try {
+            const response = await fetch(`${BASE_URL}/signout`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': authToken // Add the auth token to the request header
+                }
+            });
+
+            if (response.ok) {
+                // Sign out successful
+                localStorage.removeItem('authToken');
+                setIsSignedIn(false);
+            } else {
+                // Handle error response
+                const errorData = await response.json();
+                console.error('Sign-out failed:', errorData.message || 'Sign-out failed');
+            }
+        } catch (error) {
+            console.error('Error during sign-out:', error);
+        }
     };
 
     return (
