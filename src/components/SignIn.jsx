@@ -28,7 +28,7 @@ export default function SignIn() {
                 setTimeout(() => {
                     setMessage('');
                     navigate('/');
-                }, 2000);
+                }, 1000);
             } else {
                 setStatus('failure');
                 setMessage(result.message || 'Login failed. Please try again.');
