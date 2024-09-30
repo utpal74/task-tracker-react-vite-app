@@ -1,6 +1,7 @@
 
 import { Link, useNavigate } from 'react-router-dom';
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
+import logo_ai from "../assets/logo-ai.webp";
 import { useAuth } from '../hooks/AuthContext.jsx';
 
 export default function Header({ handleToggleTask }) {
@@ -9,31 +10,27 @@ export default function Header({ handleToggleTask }) {
 
     return (
         <header>
-            <div className="logo-section">
-                <img src={logo} alt="TRACK MY TASK" />
-            </div>
-            <div className="header-btn-section">
-                {isSignedIn ? (
-                    <button
-                        className="header-btn"
-                        onClick={signOut}
-                    >
-                        Logout
-                    </button>
-                ) : (
-                    <button
-                        className="header-btn"
-                        onClick={() => navigate('/signin')}
-                    >
-                        Login
-                    </button>
-                )}
-                <button
-                    className="header-btn"
-                    onClick={() => { handleToggleTask(true) }}
-                >
-                    Task Dashboard
-                </button>
+            <div className="head-container">
+                <div className="logo-section">
+                    <img src={logo_ai} alt="TRACK MY TASK" />
+                </div>
+                <div className="header-btn-section">
+                    {isSignedIn ? (
+                        <button
+                            className="header-btn"
+                            onClick={signOut}
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <button
+                            className="header-btn"
+                            onClick={() => navigate('/signin')}
+                        >
+                            Login
+                        </button>
+                    )}
+                </div>
             </div>
         </header>
     );
