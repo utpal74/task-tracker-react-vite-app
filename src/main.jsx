@@ -5,6 +5,7 @@ import './index.css'
 import ReactGa from "react-ga";
 import reportWebVitals from "./reportWebVitals"
 import { BrowserRouter } from 'react-router-dom';
+import AuthProvider, { useAuth } from './hooks/AuthContext.jsx';
 
 const TRACKING_ID = "G-SXL6T8M54Y";
 ReactGa.initialize(TRACKING_ID);
@@ -12,12 +13,14 @@ ReactGa.initialize(TRACKING_ID);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App auth={useAuth} />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
 )
 
-const SendAnalytics = ()=> {
+const SendAnalytics = () => {
   ReactGa.send({
     hitType: "pageview",
     page: window.location.pathname,
