@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext();
 
@@ -9,6 +9,38 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 
 export default function AuthProvider({ children }) {
     const [isSignedIn, setIsSignedIn] = useState(false);
+
+    useEffect(() => {
+        const authToken = localStorage.getItem('authToken');
+        if (authToken) {
+            validateToken(authToken);
+        }
+    }, []);
+
+    const validateToken = async (token) => {
+        try {
+            const response = await fetch(`${BASE_URL}/refresh`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token,
+                },
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                localStorage.setItem('authToken', result.new_token);
+                setIsSignedIn(true);
+            } else {
+                localStorage.removeItem('authToken');
+                setIsSignedIn(false);
+            }
+        } catch (error) {
+            console.error('Error validating token:', error);
+            localStorage.removeItem('authToken');
+            setIsSignedIn(false);
+        }
+    };
 
     const signIn = async (username, password) => {
         try {
@@ -22,9 +54,8 @@ export default function AuthProvider({ children }) {
 
             if (response.ok) {
                 const result = await response.json();
-                // Store token or session info if needed
                 localStorage.setItem('authToken', result.token);
-                setIsSignedIn(true);  // Mark user as signed in
+                setIsSignedIn(true);
                 return { success: true, message: 'Login successful' };
             } else {
                 const errorData = await response.json();
@@ -38,8 +69,6 @@ export default function AuthProvider({ children }) {
     };
 
     const signUp = async (username, password, confirmPassword) => {
-        console.log("password=", password)
-        console.log("confirm password=", confirmPassword)
         if (password !== confirmPassword) {
             console.error('Passwords do not match');
             return { success: false, message: 'Passwords do not match' };
@@ -70,11 +99,6 @@ export default function AuthProvider({ children }) {
         }
     };
 
-    // const signOut = () => {
-    //     localStorage.removeItem('authToken');
-    //     setIsSignedIn(false);
-    // };
-
     const signOut = async () => {
         const authToken = localStorage.getItem('authToken');
 
@@ -88,16 +112,14 @@ export default function AuthProvider({ children }) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': authToken // Add the auth token to the request header
+                    'Authorization': authToken
                 }
             });
 
             if (response.ok) {
-                // Sign out successful
                 localStorage.removeItem('authToken');
                 setIsSignedIn(false);
             } else {
-                // Handle error response
                 const errorData = await response.json();
                 console.error('Sign-out failed:', errorData.message || 'Sign-out failed');
             }
