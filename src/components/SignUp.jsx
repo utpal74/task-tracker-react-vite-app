@@ -53,12 +53,19 @@ export default function SignUp() {
         setMessage('');
     };
 
+    const handleCloseForm = () => {
+        navigate('/');
+    };
+
     return (
         <div className="auth-form">
+            <button className="close-form-btn" onClick={handleCloseForm}>
+                &times; {/* Close ("X") icon */}
+            </button>
             <h2>Sign Up</h2>
             <form onSubmit={handleSignUp}>
                 <div>
-                    <label>Email</label>
+                    {/* <label>Email</label> */}
                     <input
                         className="username-field"
                         placeholder="Enter email"
@@ -69,7 +76,7 @@ export default function SignUp() {
                     />
                 </div>
                 <div>
-                    <label>Password</label>
+                    {/* <label>Password</label> */}
                     <input
                         className="pwd-field"
                         placeholder="Enter password"
@@ -80,7 +87,7 @@ export default function SignUp() {
                     />
                 </div>
                 <div>
-                    <label>Confirm Password</label>
+                    {/* <label>Confirm Password</label> */}
                     <input
                         className="pwd-field"
                         placeholder="Re-enter password"
@@ -90,7 +97,7 @@ export default function SignUp() {
                         required
                     />
                 </div>
-                <button type="submit">Sign Up</button>
+                <button className='sign-up btn' type="submit">Sign Up</button>
             </form>
             <p>
                 Existing user?{" "}

@@ -44,12 +44,19 @@ export default function SignIn() {
         setMessage('');
     };
 
+    const handleCloseForm = () => {
+        navigate('/');
+    };
+
     return (
         <div className="auth-form">
+            <button className="close-form-btn" onClick={handleCloseForm}>
+                &times; {/* Close ("X") icon */}
+            </button>
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
                 <div>
-                    <label>Username</label>
+                    {/* <label>Username</label> */}
                     <input
                         className="username-field"
                         placeholder="Enter email"
@@ -60,7 +67,7 @@ export default function SignIn() {
                     />
                 </div>
                 <div>
-                    <label>Password</label>
+                    {/* <label>Password</label> */}
                     <input
                         className="pwd-field"
                         placeholder="Enter password"
@@ -70,7 +77,7 @@ export default function SignIn() {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button className='sign-in btn' type="submit">Login</button>
             </form>
             <p>
                 New to Track My Task?{" "}

@@ -119,12 +119,15 @@ export default function AuthProvider({ children }) {
             if (response.ok) {
                 localStorage.removeItem('authToken');
                 setIsSignedIn(false);
+                return { success: true };
             } else {
                 const errorData = await response.json();
                 console.error('Sign-out failed:', errorData.message || 'Sign-out failed');
+                return { success: false, message: errorData.message || 'Sign-out failed' };
             }
         } catch (error) {
             console.error('Error during sign-out:', error);
+            return { success: false, message: 'An error occurred during sign-out. Please try again.' };
         }
     };
 

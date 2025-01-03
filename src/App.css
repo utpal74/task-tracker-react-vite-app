@@ -62,7 +62,7 @@ footer>div>a {
 header {
   padding: 1rem 2rem;
   margin: 0 auto;
-  box-shadow: 0px 1px 10px 0px var(--primary-color);
+  background: linear-gradient(135deg, #d1c4e9, #b39ddb);
 }
 
 .head-container {
@@ -119,7 +119,6 @@ header {
 .task,
 .create-task-form {
   box-shadow: 0px 1px 10px 0px var(--primary-color);
-  ;
   border-radius: 10px;
 }
 
@@ -157,8 +156,7 @@ header {
   top: 0;
   width: 80%;
   height: 60%;
-  /* background-color: var(--primary-color); */
-  background-color: #c3e6cb;
+  background-color: #f9f9f9;
   margin: auto auto;
   max-width: 1050px;
 }
@@ -170,7 +168,6 @@ header {
 input.fields {
   padding: .5rem;
   border: 1px solid var(--primary-color);
-  ;
   border-radius: 10px;
   font-size: inherit;
   font-weight: inherit;
@@ -189,8 +186,9 @@ button.fields:nth-last-of-type(1) {
 .update-task-btn,
 .cancel-task-btn {
   font-size: .825rem;
-  /* font-weight: 500; */
   letter-spacing: 1.1px;
+  background-color: #1a1a1a;
+  color: #fff;
 }
 
 .tooltip_element {
@@ -219,7 +217,6 @@ textarea {
 
 textarea.fields,
 input.fields {
-  /* border: 1px solid var(--primary-color); */
   width: 30%;
   font-family: inherit;
   outline: none;
@@ -236,6 +233,7 @@ input.fields {
 /* Sign in & Sign up */
 
 .auth-form {
+  position: relative;
   width: 90vw;
   height: 400px;
   padding: 1rem;
@@ -259,14 +257,10 @@ input.fields {
   width: 80%;
 }
 
-.auth-form>form label {
-  margin-right: 1rem;
-}
-
 .auth-form>form div {
   width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .auth-form>form input {
@@ -279,7 +273,7 @@ input.fields {
 }
 
 .auth-form>form button {
-  width: 50%;
+  width: 40%;
 }
 
 /* sign in & sign up animation  */
@@ -415,6 +409,16 @@ input.fields {
   color: inherit;
 }
 
+.close-form-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.close-form-btn:hover {
+  color: red;
+}
+
 /* The typing effect */
 @keyframes fadeIn {
   to {
@@ -429,6 +433,15 @@ input.fields {
 }
 
 @media (max-width: 500px) {
+  .auth-form>form input {
+    width: 90%;
+  }
+
+  .sign-in.btn,
+  .sign-up.btn {
+    width: 75%;
+  }
+
   .task-list {
     flex-direction: column;
   }
